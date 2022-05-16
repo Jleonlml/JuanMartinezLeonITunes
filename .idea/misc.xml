@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.18958333333333333" />
+        <entry key="app/src/main/res/drawable/ic_baseline_music_note_24.xml" value="0.172" />
+        <entry key="app/src/main/res/drawable/rock_icon.xml" value="0.101" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/fragment_music_list.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/fragment_recycle_view.xml" value="0.18568840579710144" />

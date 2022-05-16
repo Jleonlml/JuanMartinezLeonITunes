@@ -1,7 +1,7 @@
 package com.example.juanmartinezleonitunes.Model
 
 data class SongResponse(
-    val results: List<Song>
+    var results: List<Song>
 )
 
 data class Song(

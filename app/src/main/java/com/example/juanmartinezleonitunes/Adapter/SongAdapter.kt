@@ -1,12 +1,15 @@
 package com.example.juanmartinezleonitunes.Adapter
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.juanmartinezleonitunes.Model.Song
 import com.example.juanmartinezleonitunes.R
@@ -15,7 +18,7 @@ import com.squareup.picasso.Picasso
 
 //create the viewholder
 //add the data to the viewholder
-class SongAdapter(private val list: List<Song>): RecyclerView.Adapter<SongAdapter.SongViewHolder>(){
+class SongAdapter(private val list: List<Song>, private val musicType: Int?): RecyclerView.Adapter<SongAdapter.SongViewHolder>(){
 
     inner class SongViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun onBind(randomSong: Song) {
@@ -23,6 +26,7 @@ class SongAdapter(private val list: List<Song>): RecyclerView.Adapter<SongAdapte
             val ivSongPic = itemView.findViewById<ImageView>(R.id.iv_songImg)
             val tvArtistName = itemView.findViewById<TextView>(R.id.tv_artist_name)
             val tvPrice = itemView.findViewById<TextView>(R.id.tv_price)
+            val cardItem = itemView.findViewById<CardView>(R.id.card_item)
 
             tvSongName.text = randomSong.trackName
             Picasso.get().load(randomSong.artworkUrl60)
@@ -31,7 +35,20 @@ class SongAdapter(private val list: List<Song>): RecyclerView.Adapter<SongAdapte
                 .into(ivSongPic)
 
             tvArtistName.text = randomSong.artistName
-            tvPrice.text = randomSong.trackPrice.toString()
+            tvPrice.text = if(randomSong.trackPrice > 0) "$" + randomSong.trackPrice.toString() else "FREE"
+
+            when(musicType) {
+                1->
+                    cardItem.setCardBackgroundColor(Color.parseColor("#90EEEEEE"))
+                2->{
+                    cardItem.setCardBackgroundColor(Color.parseColor("#301a1300"))
+                    tvPrice.setTextColor(Color.parseColor("#F2F2F2"))
+                    tvSongName.setTextColor(Color.parseColor("#F2F2F2"))
+                    tvArtistName.setTextColor(Color.parseColor("#F2F2F2"))
+                }
+                3->
+                    cardItem.setCardBackgroundColor(Color.parseColor("#90EEEEEE"))
+            }
 
             itemView.setOnClickListener()
             {

@@ -33,11 +33,11 @@ class MainActivity : AppCompatActivity() {
                 else -> {throw Resources.NotFoundException("not found")}
             }
             tab.icon =  when(index) {
-                0 -> { ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_foreground, null)}
+                0 -> { ResourcesCompat.getDrawable(resources, R.drawable.rock_icon, null)}
                 1 -> {
-                    ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_foreground, null)}
+                    ResourcesCompat.getDrawable(resources, R.drawable.ic_baseline_music_note_24, null)}
                 2 -> {
-                    ResourcesCompat.getDrawable(resources, R.drawable.ic_launcher_foreground, null)}
+                    ResourcesCompat.getDrawable(resources, R.drawable.pop_icon, null)}
                 else -> {throw Resources.NotFoundException("not found")}
             }
 
@@ -49,8 +49,8 @@ class MainActivity : AppCompatActivity() {
                 if (tab != null) {
                     when (tab.position) {
                         0-> changeTabColors("#000000", "#ce0015", "#fefefe", "#ce0015", R.color.rock_selector_icon, "#1c1200")
-                        1-> changeTabColors("#745435", "#000000", "#fefefe", "#000000", R.color.classic_selector_icon, "#cfa162")
-                        2-> changeTabColors("#ff6fb5", "#a386da", "#fefefe", "#a386da", R.color.pop_selector_icon, "#ff92a3")
+                        1-> changeTabColors("#a18056", "#573b24", "#fefefe", "#573b24", R.color.classic_selector_icon, "#cfa162")
+                        2-> changeTabColors("#c7007b", "#72009a", "#fefefe", "#72009a", R.color.pop_selector_icon, "#ff92a3")
                     }
                 }
             }
@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
         tab_tablayout.setSelectedTabIndicatorColor(Color.parseColor(indicatorColor))
         tab_tablayout.setTabIconTintResource(selector)
         cordLayout.setBackgroundColor(Color.parseColor(listBackground))
+
     }
 }
 
